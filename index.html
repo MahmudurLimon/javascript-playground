@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>
+            Index
+        </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body class="body">
+        <div class="main_container">
+            <h1 id="container_1" class="container_1">This is a Title <button onclick="clicky_function()">clicky</button></h1>
+            <h2 id="header_2" class="header_2">This is Second Title <button id="h2_btn">clicky</button></h2>
+
+            <h3 id="h3_id" class="h3_class">Test Header Number 3</h3>
+            <button id="h3button_id">press</button>
+            <p id="h3_para_id" class="h3_para">click to use javascript...</p>
+
+            <label for="input1">First Name:</label>
+            <input id="input1" class="input1" name="input1" type="text">
+            <p id="para2"></p>
+
+            <form action="" method="" id="user-from" class="user-form">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first_name">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last_name">
+                    <label for="user-email">Email</label>
+                    <input type="email" id="user-email" name="user_email">
+                    <label for="user-phone">Phone</label>
+                    <input type="tel" id="user-phone" name="user_phone">
+                    <label for="user-address">Address</label>
+                    <textarea name="user_address" id="user-address"></textarea>
+                    <label for="user-gender">Gender</label>
+                    <div id="user-gender-radio" class="user-gender-radio">
+                        <input type="radio" id="gender-male" name="gender">
+                        <label for="gender-male">Male</label><br>
+                        <input type="radio" id="gender-female" name="gender">
+                        <label for="gender-female">Female</label><br>
+                        <input type="radio" id="gender-others" name="gender">
+                        <label for="gender-others">Others</label>
+                    </div>
+                    <label for="user-religion">Religion</label>
+                    <div id="user-religion" class="user-religion">
+                        <label><input type="radio" id="religion-islam"  name="religion">Islam</label><br>
+
+                        <input type="radio" id="religion-hindu" name="religion">
+                        <label for="relgion-hindu">Hindu</label><br>
+                        <input type="radio" id="religion-christian"     name="religion">
+                        <label for="relgion-christian">Christian</label><br>
+                        <input type="radio" id="religion-buddha"    name="religion">
+                        <label for="relgion-buddha">Buddha</label><br>
+                        <input type="radio" id="religion-jewish"    name="religion">
+                        <label for="relgion-jewish">Jewish</label><br>
+                        <input type="radio" id="religion-others"    name="religion">
+                        <label for="relgion-others">Others</label><br>
+                    </div>
+                    <label for="user-language">Language</label>
+                    <div id="user-language" class="user-language">
+                        <label>
+                            <input type="checkbox" id="language-bengali"    name="user_lanuage_bengali">
+                            Bengali
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="language-english"    name="user_lanuage_english">
+                            English
+                        </label><br>
+                        <label>
+                            <input type="checkbox" id="language-hindi"  name="user_lanuage_hindi">
+                            Hindi
+                        </label><br><br>
+                    </div>
+                    <button id="user-form-submit" class="user-form-submit">Submit</button>
+                </fieldset>
+            </form>
+
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

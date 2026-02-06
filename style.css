@@ -1,0 +1,35 @@
+.body{
+    background-color: #fffbe6;
+}
+.container_1{
+    text-align: center;
+}
+
+.blue {
+    color: blue;
+}
+/* .h3content{
+    transform: scale(.8);
+    transition: 2s;
+} */
+.h3content{
+    text-align: right;
+}
+.pop {
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+.user-form{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
+.user-gender-radio{
+    display: block;
+}
+.user-religion{
+    display: block;
+}
+.user-language{
+    display: block;
+}
