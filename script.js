@@ -43,3 +43,13 @@ new_input.addEventListener("input",() => {
     console.log(temp_input);
 });
 
+const userForm = document.getElementById("user-form");
+if (userForm){
+    userForm.addEventListener("submit",(e) => {
+        e.preventDefault();
+        const fd = new FormData(userForm);
+        for (const [name,value] of fd.entries()){
+            console.log(name,value);
+        };
+    });
+};
