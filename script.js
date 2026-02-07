@@ -44,12 +44,45 @@ new_input.addEventListener("input",() => {
 });
 
 const userForm = document.getElementById("user-form");
-if (userForm){
-    userForm.addEventListener("submit",(e) => {
-        e.preventDefault();
-        const fd = new FormData(userForm);
-        for (const [name,value] of fd.entries()){
-            console.log(name,value);
-        };
-    });
-};
+const userFormSubmit = document.getElementById("user-form-submit");
+
+userFormSubmit.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const firstName=document.getElementById("first-name").value;
+    const lastName=document.getElementById("last-name").value;
+    const email=document.getElementById("user-email").value;
+    const phone=document.getElementById("user-phone").value;
+    const address=document.getElementById("user-address").value;
+
+    const gender=document.querySelector('input[name="gender"]:checked');
+    const selectedGender=gender ? gender.id:"Not Selected";
+
+    const religion=document.querySelector('input[name="religion"]:checked');
+    const selectedReligion=religion ? religion.id:"Not Selected";
+
+    /* const checkedLanguages=document.querySelectorAll('input["name^="user_language"]:checked');
+    const languagesArray = Array.from(checkedLanguages);
+    const languages = languagesArray.map(
+        function(lang){
+            return lang.id;
+        }
+    ); */
+    /* above code is the same as below code. */
+
+    const languages = Array.from(document.querySelectorAll('input[name^="user_language"]:checked')).map(lang => lang.id);
+
+    const formData = {
+        firstName,
+        lastName,
+        email,
+        phone,
+        address,
+        gender: selectedGender,
+        religion: selectedReligion,
+        languages
+    };
+
+    console.log("Form Data:", formData);
+    alert(`Form Submitted!\n\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\nGender: ${selectedGender}\nReligion: ${selectedReligion}\nLanguages: ${languages.join(", ") || "None"}`);
+});
