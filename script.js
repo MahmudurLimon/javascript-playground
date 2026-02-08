@@ -43,7 +43,7 @@ new_input.addEventListener("input",() => {
     console.log(temp_input);
 });
 
-const userForm = document.getElementById("user-form");
+const userForm = document.getElementById("user-from");
 const userFormSubmit = document.getElementById("user-form-submit");
 
 userFormSubmit.addEventListener("click", (e) => {
@@ -70,7 +70,7 @@ userFormSubmit.addEventListener("click", (e) => {
     ); */
     /* above code is the same as below code. */
 
-    const languages = Array.from(document.querySelectorAll('input[name^="user_language"]:checked')).map(lang => lang.id);
+    const languages = Array.from(document.querySelectorAll('input[name^="user_lanuage"]:checked')).map(lang => lang.id);
 
     const formData = {
         firstName,
@@ -83,6 +83,31 @@ userFormSubmit.addEventListener("click", (e) => {
         languages
     };
 
-    console.log("Form Data:", formData);
-    alert(`Form Submitted!\n\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\nGender: ${selectedGender}\nReligion: ${selectedReligion}\nLanguages: ${languages.join(", ") || "None"}`);
+    // Send to PostgreSQL
+    fetch('/api/submit-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success){
+            alert('Form submitted successfully! ID: ' + data.id);
+            if (userForm) {
+                userForm.reset();
+            } else {
+                // Get all form inputs and clear them manually
+                document.getElementById("first-name").value = "";
+                document.getElementById("last-name").value = "";
+                document.getElementById("user-email").value = "";
+                document.getElementById("user-phone").value = "";
+                document.getElementById("user-address").value = "";
+                document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+            }
+        } else {
+            alert('Error: ' + data.error);
+        }
+    })
+    .catch(err => alert('Error: ' + err));
 });
